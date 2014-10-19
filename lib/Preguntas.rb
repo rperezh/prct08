@@ -1,26 +1,24 @@
-#!/usr/bin/env ruby
-
+  #!/usr/bin/env ruby
+  # Clase pregunta que almacena y representa Preguntas sencillas de examen
   class Pregunta
-    
     attr_accessor :answers, :title
 
-    
-     def obtener_pregunta
-       puts "Introduzca la pregunta"
-       title = gets.chomp
-       return title
+    def obtener_pregunta
+      puts "Introduzca la pregunta"
+      title = gets.chomp
+      return title
     end
 
     def obtener_respuestas
-       puts "Introduzca numero de respuestas a la pregunta"
-       num = gets.chomp.to_i
-       c = []
-       while num != 0 do 
-         c = obtener_respuesta + c
-         num = num - 1 
-       end
-       @answers = c
-   end
+      puts "Introduzca numero de respuestas a la pregunta"
+      num = gets.chomp.to_i
+      c = []
+      while num != 0
+        c = obtener_respuesta + c
+        num -= 1
+      end
+      @answers = c
+    end
 
     def obtener_respuesta
       puts "Introduzca la respuesta"
@@ -28,13 +26,13 @@
       return ans
     end
 
-
     def initialize(title = obtener_pregunta, answers = obtener_respuestas)
-      raise ArgumentError, "Title has to be a String, got #{title.class}" unless title.is_a? String
+      raise ArgumentError,
+      "Title has to be a String, got #{title.class}" unless title.is_a? String
       @title = title
       @answers = answers
     end
-  
+
     def to_s
       out = "# #{@title}" + "\n"
       i = 1
@@ -44,7 +42,5 @@
       end
       puts out
     end
- 
- end
-
-Pregunta.new().to_s
+  end
+  Pregunta.new.to_s
