@@ -4,7 +4,7 @@ require_relative '../lib/Preguntas'
   describe Pregunta do
  
     before :each do
-      @p1 = Pregunta.new("Cuanto es 2 mas dos?", ["4","3","1"])  
+      @p1 = Pregunta.new("Cuanto es 2 mas dos?", ["4","3","1"], 0)  
     end
 
     it "Debe existir una pregunta" do
@@ -22,7 +22,11 @@ require_relative '../lib/Preguntas'
     it "Se debe invocar a un metodo para obtener las opciones de respuesta" do
        expect(@p1.respond_to? :obtener_respuestas)
     end
-    
+   
+    it "Debe existir al menos una respuesta correcta" do
+      @p1.num_c.should be_kind_of(Integer)
+    end    
+
     it "Se debe mostrar por la consola la pregunta y las opciones de respuesta" do
       expect(@p1.respond_to? :to_s)  
     end
