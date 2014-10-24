@@ -2,14 +2,15 @@ task :default => :test
 
 desc 'Run lib/Preguntas.rb'
 task :bin do
-  sh 'ruby -Ilib -Ispec lib/Preguntas.rb'
+  sh 'ruby -I. lib/Preguntas.rb'
 end
   
 desc 'Run test with --format documentation'
 task :test do
-  sh 'ruby -Ilib -Ispec spec/Preguntas_spec.rb'
+  sh 'rspec -I. -Ilib spec/Preguntas_spec.rb --format documentation'
 end
 
 desc 'Run test with format: html'
 task :thtml do
+  sh 'rspec -I. spec/Preguntas_spec.rb --format html'
 end
