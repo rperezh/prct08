@@ -52,9 +52,6 @@
         out << " #{i}.- #{a}\n"
         i += 1
       end
-      puts out
+      out
     end
   end
-  c1 = Pregunta.new
-  puts c1.to_s
-  puts c1.num_c

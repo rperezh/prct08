@@ -7,10 +7,10 @@ end
   
 desc 'Run test with --format documentation'
 task :test do
-  sh 'rspec -I. -Ilib spec/Preguntas_spec.rb --format documentation'
+  sh 'rspec spec/Preguntas_spec.rb --format documentation'
 end
 
 desc 'Run test with format: html'
 task :thtml do
-  sh 'rspec -I. spec/Preguntas_spec.rb --format html'
+  sh 'rspec spec/Preguntas_spec.rb --format html'
 end

@@ -24,7 +24,7 @@ require_relative '../lib/Preguntas'
     end
    
     it "Debe existir al menos una respuesta correcta" do
-      @p1.num_c.should be_kind_of(Integer)
+      expect(@p1.num_c != nil)
     end    
 
     it "Se debe mostrar por la consola la pregunta y las opciones de respuesta" do
