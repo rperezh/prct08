@@ -1,16 +1,17 @@
-Node = Struct.new(:value, :sig) do
+Node = Struct.new(:value, :sig, :ant) do
   # Metodo para inicializar la clase
-  def initialize (value, sig)
+  def initialize (value, sig, ant)
     @value = value
     @sig = sig
+    @ant = ant
   end
 
   # Metodo para mostrar por pantalla un nodo
   def to_s
-    if @sig == nil
+    if @sig == nil && @ant == nil
       "#{@value} " 
     else 
-      "#{@value} --> " 
+      "#{@value} <-> " 
     end
   end
   
@@ -24,56 +25,85 @@ Node = Struct.new(:value, :sig) do
     return @sig
   end
 
+  # Funcion para obtener el puntero al anterior de un nodo
+  def dev_ant
+    return @ant
+  end
+
   # Metodo para cambiar el puntero a siguiente de un nodo
   def mod_sig(sig)
     @sig = sig
   end
+
+  # Metodo para cambiar el puntero al anterior de un nodo
+  def mod_ant(ant)
+    @ant = ant
+  end
 end
 
 class List
-  attr_accessor :head
+  attr_accessor :head, :tail
 
   # Metodo par inicializar la clase
   def initialize
     @head = nil
+    @tail = nil
   end
 
   # Metodo para insertar un nodo al principio de la lista
   def ins_inicio(valor)
-    @head = Node.new(valor, @head)
+    if @head != nil && @head.dev_sig != nil
+      n = @head
+      @head = Node.new(valor, n, nil)
+      n.mod_ant(@head)
+    elsif @head != nil
+      n = @head
+      @head = Node.new(valor, n, nil)
+      n.mod_ant(@head)
+      @tail = n
+    else
+      @head = Node.new(valor, nil, nil)
+      @tail = @head
+    end
   end
 
   # Metodo para eliminar un nodo del principio de la lista
   def sup_inicio
     @head = @head.dev_sig
+    if @head != nil
+      @head.mod_ant(nil)
+    end
   end
  
   # Metodo para insertar un nodo al final de la lista
   def ins_final(valor)
-    last = @head
-    while last.dev_sig != nil
-      last = last.dev_sig
+    if @tail != nil
+      @tail = Node.new(valor, nil, @tail)
+      n = @tail.dev_ant
+      n.mod_sig(@tail)
+    else
+      @head = Node.new(valor, nil, nil)
+      @tail = @head
     end
-    last.mod_sig(Node.new(valor, nil))
   end
 
   # Metodo para eliminar un nodo del final de la lista
   def sup_final
-    last = @head
-    while last.dev_sig != nil
-      ant = last
-      last = last.dev_sig
+    @tail = @tail.dev_ant
+    if @tail != nil
+      @tail.mod_sig(nil)
+    else
+      @head = @tail
     end
-    ant.mod_sig(last.dev_sig)
   end
   
   # Metodo para representar por pantalla una lista enlazada
   def to_s
-    s = ""
+    s = "NIL <-> "
     if @head == nil
        s << "NIL"
     elsif @head.dev_sig == nil
-      s << "#{@head.to_s}--> NIL"
+      s << "#{@head.to_s}<-> NIL"
     else
       nodo = @head
       while nodo.dev_sig != nil 
@@ -81,7 +111,7 @@ class List
         nodo = nodo.dev_sig
       end
       s << "#{nodo.to_s}"
-      s << "--> NIL"
+      s << "NIL"
     end
     return s
   end
@@ -100,19 +130,4 @@ class List
     end
     num
   end
- end 
-
-#p1 = List.new
-#puts p1
-#p1.ins_inicio(1)
-#p1.length
-#p1.ins_inicio(2)
-#p1.ins_inicio(3)
-#p1.ins_inicio(4)
-#puts p1
-#p1.sup_inicio
-#p1.ins_final(5)
-#puts p1    
-#p1.ins_final(6)
-#puts p1
-#p1.sup_final
+end 
