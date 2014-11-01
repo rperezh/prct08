@@ -7,9 +7,10 @@ task :spec do
   sh 'rspec spec/exam_spec.rb'
 end
 
-desc 'Run lib/exam.rb'
+desc 'Run Ruby files from lib folder'
 task :bin do
   sh 'ruby -I. lib/exam.rb'
+  sh 'ruby -I. lib/List.rb'
 end
     
 desc 'Run test with --format documentation'
@@ -21,3 +22,10 @@ desc 'Run test with format: html'
 task :thtml do
   sh 'rspec spec/exam_spec.rb --format html'
 end
+
+desc 'Run exam list'
+task :list do
+  sh 'rspec spec/list_exam_spec.rb'
+end
+
+
