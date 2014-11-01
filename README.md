@@ -1,6 +1,8 @@
 # Exam
 
-Prct05. Desarrollo Dirigido por Pruebas (TDD).                                                                                
+Prct05. Desarrollo Dirigido por Pruebas (TDD).
+Prct06. Programación Orientada a Objetos.
+
 * Raul Perez Hernandez (https://bitbucket.org/rperezh)
 * Dailos Sabina Rodríguez (https://bitbucket.org/alu0100353259)
 
