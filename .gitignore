@@ -4,3 +4,17 @@
 *.o
 # Evitar almacenar los ficheros con extension .class
 *.class
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+*.bundle
+*.so
+*.o
+*.a
+mkmf.log
