@@ -57,7 +57,29 @@ module Exam
       out
     end
   end
+
+  # Clase para representar la clase de preguntas de Verdadero y Falso
+  class Pregunta_VF < Pregunta
+ 
+    # Metodo para inicializar haciendo overriding
+    def initialize(title = obtener_pregunta, num_c = obtener_correcta)
+      raise ArgumenError, "Title has to be a String, got #{title.class}" unless title.is_a? String
+      @title = title
+      @answers = ["Cierto", "Falso"]
+      @num_c = num_c
+    end
+  
+    # Metodo para obtener la respuesta correcta haciendo overriding
+    def self.obtener_correcta
+      puts "Si la respuesta es correcta teclee 0, en caso contrario teclee 1"
+      @num_c = gets.chomp.to_i
+    end
+  end
+
 end
+
+#p = Exam::Pregunta_VF.new(Exam::Pregunta_VF.obtener_pregunta, Exam::Pregunta_VF.obtener_correcta)
+#puts p
 #p = Exam::Pregunta.new(Exam::Pregunta.obtener_pregunta, Exam::Pregunta.obtener_respuestas, Exam::Pregunta.obtener_correcta)
 #puts "-----"
 #puts p
