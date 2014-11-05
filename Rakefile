@@ -27,5 +27,3 @@ desc 'Run exam list'
 task :list do
   sh 'rspec spec/list_exam_spec.rb'
 end
-
-
