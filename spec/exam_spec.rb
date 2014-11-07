@@ -16,6 +16,7 @@ describe Exam do
     expect(@p2.is_a? Exam::Pregunta).to eq (true)
   end
   
+  
   it "Comprobar instancia de Pregunta_VF" do
     expect(@p2).to be_an_instance_of (Exam::Pregunta_VF)
   end
