@@ -9,7 +9,7 @@ describe Exam do
     @l1.ins_final(Exam::Pregunta.new('La siguiente definicion de un hash en Ruby es validad: hash_raro = { [1, 2, 3] => Object.new(), Hash.new => :toto }',['Cierto', 'Falso'], 0))
     @l1.ins_final(Exam::Pregunta.new('¿Cual es la salida del siguiente codigo Ruby? class Array def say_hi "HEY!" end end p [1, "bob"].say_hi',['1', 'bob', 'HEY!', 'Ninguna de las anteriores'], 2))
     @l1.ins_final(Exam::Pregunta.new('¿Cual es el tipo del objeto en el siguiente codigo Ruby? class Objeto end',['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'], 0))
-    @l1.ins_final(Exam::Pregunta.new('Es apropiado que una clase Tablero herede de una clase Juego',['Cierto', 'Falso'], 0))
+    @l1.ins_final(Exam::Pregunta_VF.new('Es apropiado que una clase Tablero herede de una clase Juego', 0))
   end
 
   it "Debe existir una pregunta" do

@@ -5,30 +5,53 @@ require 'List'
 describe Exam do
   before :each do
     @p1 = Exam::Pregunta.new("Cuanto es 2 mas 2?", ["4", "3", "1"], 0)
+    @p2 = Exam::Pregunta_VF.new("Es apropiado que una clase Tablero herede de una clase Juego", 0)
+  end
+
+  it "Comprobar clase Pregunta" do
+    expect(@p1.is_a? Exam::Pregunta).to eq (true)
+  end
+
+  it "Comprobar herencia de la clase Pregunta_VF" do
+    expect(@p2.is_a? Exam::Pregunta).to eq (true)
+  end
+  
+  it "Comprobar instancia de Pregunta_VF" do
+    expect(@p2).to be_an_instance_of (Exam::Pregunta_VF)
   end
 
   it "Debe existir una pregunta" do
     expect(@p1.title).not_to be_empty
+    expect(@p2.title).not_to be_empty
   end
 
   it "Deben existir opciones de respuestas" do
     expect(@p1.answers).not_to be_empty
+    expect(@p2.answers).not_to be_empty
   end
 
   it "Se debe invocar a un metodo para obtener la pregunta" do
     expect(@p1.respond_to? :obtener_pregunta)
+    expect(@p2.respond_to? :obtener_pregunta)
   end
          
   it "Se debe invocar a un metodo para obtener las opciones de respuesta" do
     expect(@p1.respond_to? :obtener_respuestas)
+    expect(@p2.respond_to? :obtener_respuestas)
   end
         
   it "Debe existir al menos una respuesta correcta" do
     expect(@p1.num_c != nil)
+    expect(@p2.num_c != nil)
   end    
 
   it "Se debe mostrar por la consola la pregunta y las opciones de respuesta" do
     expect(@p1.respond_to? :to_s)  
+    expect(@p2.respond_to? :to_s)  
+  end
+  
+  it "Solo existen 2 respuestas: Verdadero o Falso" do
+    expect(@p2.answers.size == 2 && @p2.answers == ["Cierto", "Falso"])
   end
 end
 
