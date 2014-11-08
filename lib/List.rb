@@ -42,7 +42,15 @@ Node = Struct.new(:value, :sig, :ant) do
 end
 
 class List
+  include Enumerable
   attr_accessor :head, :tail
+
+  def each
+    while @head != nil
+      yield @head.dev_value
+      @head = @head.dev_sig
+    end  
+  end
 
   # Metodo par inicializar la clase
   def initialize

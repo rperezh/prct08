@@ -1,15 +1,25 @@
-require "exam/version"
+require_relative "exam/version"
 
 module Exam
   # Your code goes here...
   class Pregunta
-    attr_accessor :answers, :title, :num_c
+    include Comparable
+    attr_accessor :answers, :title, :num_c, :level
+
+    def <=> (anOther)
+      @level <=> anOther.level
+    end
 
     # Metodo para obtener el titulo de la pregunta mediante una introducción por pantalla
     def self.obtener_pregunta
       puts 'Introduzca la pregunta'
       title = gets.chomp
       return title
+    end
+
+    def self.obtener_level
+      print "Introduzca nivel de dificultad de la pregunta, 0 minimo y 10 maximo"
+      @level = gets.chomp.to_i
     end
 
     # Metodo para obtener las diferentes respuestas a la pregunta, manteniendo la suposición de que el numero de respuestas será el que nos proporcionen
@@ -38,12 +48,13 @@ module Exam
     end
 
     # Metodo para inicializar la clase
-    def initialize(title = obtener_pregunta, answers = obtener_respuestas, num_c = obtener_correcta)
+    def initialize(title = obtener_pregunta, answers = obtener_respuestas, num_c = obtener_correcta, level = obtener_level)
       raise ArgumentError,
         "Title has to be a String, got #{title.class}" unless title.is_a? String
       @title = title
       @answers = answers
       @num_c = num_c
+      @level = level
     end
 
     # Metodo para mostrar por pantalla la pregunta y las posibles respuestas
@@ -60,13 +71,14 @@ module Exam
 
   # Clase para representar la clase de preguntas de Verdadero y Falso
   class Pregunta_VF < Pregunta
- 
+
     # Metodo para inicializar haciendo overriding
-    def initialize(title = obtener_pregunta, num_c = obtener_correcta)
+    def initialize(title = obtener_pregunta, num_c = obtener_correcta, level = obtener_level)
       raise ArgumenError, "Title has to be a String, got #{title.class}" unless title.is_a? String
       @title = title
       @answers = ["Cierto", "Falso"]
       @num_c = num_c
+      @level = level
     end
   
     # Metodo para obtener la respuesta correcta haciendo overriding
@@ -77,9 +89,3 @@ module Exam
   end
 
 end
-
-#p = Exam::Pregunta_VF.new(Exam::Pregunta_VF.obtener_pregunta, Exam::Pregunta_VF.obtener_correcta)
-#puts p
-#p = Exam::Pregunta.new(Exam::Pregunta.obtener_pregunta, Exam::Pregunta.obtener_respuestas, Exam::Pregunta.obtener_correcta)
-#puts "-----"
-#puts p
