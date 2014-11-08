@@ -1,4 +1,4 @@
-require_relative "exam/version"
+require "exam/version"
 
 module Exam
   # Your code goes here...
