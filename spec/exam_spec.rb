@@ -4,10 +4,10 @@ require 'List'
 
 describe Exam do
   before :each do
-    @p1 = Exam::Pregunta.new("Cuanto es 2 mas 2?", ["4", "3", "1"], 0)
-    @p2 = Exam::Pregunta_VF.new("Es apropiado que una clase Tablero herede de una clase Juego", 0)
-    @p3 = Exam::Pregunta.new("Cuanto es 3 mas 2?", ["5", "3", "1"],0,2)
-    @p4 = Exam::Pregunta_VF.new("Edison invento la bombilla?",0,5) 
+    @p1 = Exam::Pregunta.new("Cuanto es 2 mas 2?", ["4", "3", "1"], 0, 2)
+    @p2 = Exam::Pregunta_VF.new("Es apropiado que una clase Tablero herede de una clase Juego", 0, 3)
+    @p3 = Exam::Pregunta.new("Cuanto es 3 mas 2?", ["5", "3", "1"], 0, 2)
+    @p4 = Exam::Pregunta_VF.new("Edison invento la bombilla?", 0, 5) 
   end
 
   it "Comprobar clase Pregunta" do
