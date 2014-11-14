@@ -1,6 +1,7 @@
 require 'spec_helper'
 require 'exam'
 require 'List'
+require 'Quiz'
 
 describe Exam do
   before :each do
@@ -10,6 +11,11 @@ describe Exam do
     @l1.ins_final(Exam::Pregunta.new('Cual es la salida del siguiente codigo Ruby? class Array def say_hi "HEY!" end end p [1, "bob"].say_hi',['1', 'bob', 'HEY!', 'Ninguna de las anteriores'],2,2))
     @l1.ins_final(Exam::Pregunta.new('Cual es el tipo del objeto en el siguiente codigo Ruby? class Objeto end',['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'],0,3))
     @l1.ins_final(Exam::Pregunta_VF.new('Es apropiado que una clase Tablero herede de una clase Juego',0,4))
+    @q1 = Quiz.new("Examen LPP",@l1)
+  end
+
+  it "Se debe poder imprimir por pantalla un examen" do
+    expect(@q1.respond_to? :run)
   end
 
   it "Debe existir una pregunta" do

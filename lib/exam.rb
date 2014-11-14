@@ -1,4 +1,4 @@
-require "exam/version"
+#require "exam/version"
 
 module Exam
   # Your code goes here...
@@ -87,5 +87,4 @@ module Exam
       @num_c = gets.chomp.to_i
     end
   end
-
 end
