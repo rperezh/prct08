@@ -1,3 +1,4 @@
+#Clase nodo
 Node = Struct.new(:value, :sig, :ant) do
   # Metodo para inicializar la clase
   def initialize (value, sig, ant)
