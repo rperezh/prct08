@@ -64,4 +64,17 @@ describe Exam do
   it "Comprueba el numero de elementos de la lista" do
     expect(@l1.count).to eq(6)
   end
+
+  it "Comprobar que una pregunta es igual a otra" do
+    expect(@l1.head.dev_value == @l1.tail.dev_value).to eq(true)
+  end
+
+  it "Comprobar clase Pregunta" do
+    expect((@l1.head.dev_value).is_a? Exam::Pregunta).to eq(true)
+  end
+
+  it "Comprueba que una pregunta es de menor nivel que otra" do
+    expect(@l1.head.dev_value < @l1.head.dev_sig.dev_value).to eq(true)
+    expect(@l1.head.dev_sig.dev_value < @l1.head.dev_value).to eq(false)
+  end 
 end
