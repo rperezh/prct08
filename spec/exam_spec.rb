@@ -8,6 +8,7 @@ describe Exam do
     @p2 = Exam::Pregunta_VF.new("Es apropiado que una clase Tablero herede de una clase Juego",0,3)
     @p3 = Exam::Pregunta.new("Cuanto es 3 mas 2?", ["5", "3", "1"],0,2)
     @p4 = Exam::Pregunta_VF.new("Edison invento la bombilla?",0,5) 
+    @p5 = Exam::Pregunta.new("Cuanto es 2 mas 2?", ["4", "3", "1"], 0, 2)
   end
 
   it "Comprobar clase Pregunta" do
@@ -16,10 +17,12 @@ describe Exam do
   
   it "Comprueba que una pregunta es de menor nivel que otra" do
     expect(@p1 < @p2).to eq(true)
+    expect(@p2 < @p1).to eq(false)
   end
 
   it "Comprueba que una pregunta es de mismo nivel que otra" do
-    expect(@p1 == @p3).to eq(true)
+    expect(@p1 == @p3).to eq(false)
+    expect(@p1 == @p5).to eq(true)
   end
 
   it "Comprueba que una pregunta es de mayor nivel que otra" do
@@ -29,6 +32,7 @@ describe Exam do
   it "Debe existir un nivel de pregunta y debe estar entre 0 y 10" do
     expect (@p1.level >= 0 && @p1.level <= 10)
   end
+
   it "Comprobar herencia de la clase Pregunta_VF" do
     expect(@p2.is_a? Exam::Pregunta).to eq (true)
   end

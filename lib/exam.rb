@@ -10,6 +10,10 @@ module Exam
       @level <=> anOther.level
     end
 
+    def == (other)
+      @level == other.level && @title == other.title
+    end
+    
     # Metodo para obtener el titulo de la pregunta mediante una introducción por pantalla
     def self.obtener_pregunta
       puts 'Introduzca la pregunta'

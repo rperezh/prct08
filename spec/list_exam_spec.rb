@@ -6,12 +6,13 @@ require 'Quiz'
 describe Exam do
   before :each do
     @l1 = List.new
-    @l1.ins_inicio(Exam::Pregunta.new('Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots',['#<Xyz:0xa000208>','nil','0', 'Ninguna de las anteriores'],1,0))
-    @l1.ins_final(Exam::Pregunta.new('La siguiente definicion de un hash en Ruby es validad: hash_raro = { [1, 2, 3] => Object.new(), Hash.new => :toto }',['Cierto', 'Falso'],0,1))
-    @l1.ins_final(Exam::Pregunta.new('Cual es la salida del siguiente codigo Ruby? class Array def say_hi "HEY!" end end p [1, "bob"].say_hi',['1', 'bob', 'HEY!', 'Ninguna de las anteriores'],2,2))
-    @l1.ins_final(Exam::Pregunta.new('Cual es el tipo del objeto en el siguiente codigo Ruby? class Objeto end',['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'],0,3))
-    @l1.ins_final(Exam::Pregunta_VF.new('Es apropiado que una clase Tablero herede de una clase Juego',0,4))
-    @q1 = Quiz.new("Examen LPP",@l1)
+    @l1.ins_inicio(Exam::Pregunta.new('¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots', ['#<Xyz:0xa000208>', 'nil', '0', 'Ninguna de las anteriores'], 1, 0))
+    @l1.ins_final(Exam::Pregunta.new('La siguiente definicion de un hash en Ruby es validad: hash_raro = { [1, 2, 3] => Object.new(), Hash.new => :toto }', ['Cierto', 'Falso'], 0, 1))
+    @l1.ins_final(Exam::Pregunta.new('Cual es la salida del siguiente codigo Ruby? class Array def say_hi "HEY!" end end p [1, "bob"].say_hi', ['1', 'bob', 'HEY!', 'Ninguna de las anteriores'], 2, 2))
+    @l1.ins_final(Exam::Pregunta.new('Cual es el tipo del objeto en el siguiente codigo Ruby? class Objeto end', ['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'], 0, 3))
+    @l1.ins_final(Exam::Pregunta_VF.new('Es apropiado que una clase Tablero herede de una clase Juego', 0, 4))
+    @l1.ins_final(Exam::Pregunta.new('¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots', ['#<Xyz:0xa000208>', 'nil', '0', 'Ninguna de las anteriores'], 1, 0))
+    @q1 = Quiz.new("Examen LPP", @l1)
   end
 
   it "Se debe poder imprimir por pantalla un examen" do
@@ -65,4 +66,21 @@ describe Exam do
       p = p.dev_sig
     end
   end
+  
+  it "Comprueba el numero de elementos de la lista" do
+    expect(@l1.count).to eq(6)
+  end
+
+  it "Comprobar que una pregunta es igual a otra" do
+    expect(@l1.head.dev_value == @l1.tail.dev_value).to eq(true)
+  end
+
+  it "Comprobar clase Pregunta" do
+    expect((@l1.head.dev_value).is_a? Exam::Pregunta).to eq(true)
+  end
+
+  it "Comprueba que una pregunta es de menor nivel que otra" do
+    expect(@l1.head.dev_value < @l1.head.dev_sig.dev_value).to eq(true)
+    expect(@l1.head.dev_sig.dev_value < @l1.head.dev_value).to eq(false)
+  end 
 end
