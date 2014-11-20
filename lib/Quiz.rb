@@ -19,6 +19,7 @@ class Quiz
     :right
   end
 
+  # Presentar examen
   def run
     puts name
     questions.each do |q|
@@ -35,6 +36,15 @@ class Quiz
     end
     puts "Has acertado #{@aciertos} preguntas"
   end
+
+  # Muestra el examen por pantall
+  def to_s
+    q = "#{@name}" + "\n"
+    questions.each do |p|
+      q << p.to_s + "\n"
+    end
+    q
+  end
 end
 
 #@l1 = List.new
@@ -45,3 +55,4 @@ end
 #@l1.ins_final(Exam::Pregunta_VF.new('Es apropiado que una clase Tablero herede de una clase Juego',0,4))
 #@q1 = Quiz.new("Examen LPP",@l1)
 #@q1.run
+#puts @q1

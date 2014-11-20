@@ -12,7 +12,7 @@ describe Exam do
   end
 
   it "Comprobar clase Pregunta" do
-    expect(@p1.is_a? Exam::Pregunta).to eq (true)
+    expect(@p1.is_a? Exam::Pregunta).to eq(true)
   end
   
   it "Comprueba que una pregunta es de menor nivel que otra" do
@@ -34,7 +34,7 @@ describe Exam do
   end
 
   it "Comprobar herencia de la clase Pregunta_VF" do
-    expect(@p2.is_a? Exam::Pregunta).to eq (true)
+    expect(@p2.is_a? Exam::Pregunta).to eq(true)
   end
   
   
@@ -116,7 +116,7 @@ describe List do
   end
 
   it "Comprueba que hay un elemento en la lista" do
-    expect(@t1.include?(4)).to eq (true)
+    expect(@t1.include?(4)).to eq(true)
   end
 
   it 'Se puede insertar un elemento' do
