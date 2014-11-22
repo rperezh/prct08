@@ -12,7 +12,7 @@ describe Quiz do
     @l1.ins_final(Exam::Pregunta.new('Cual es el tipo del objeto en el siguiente codigo Ruby? class Objeto end', ['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'], 0, 3))
     @l1.ins_final(Exam::Pregunta_VF.new('Es apropiado que una clase Tablero herede de una clase Juego', 0, 4))
     @l1.ins_final(Exam::Pregunta.new('¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots', ['#<Xyz:0xa000208>', 'nil', '0', 'Ninguna de las anteriores'], 1, 1))
-    @q1 = Quiz.new("Examen LPP", @l1)
+    @q1 = InterfazQuiz.new("Examen LPP", @l1)
   end
 
   it "Se debe poder realizar por pantalla un examen" do
@@ -21,6 +21,10 @@ describe Quiz do
 
   it "Se debe poder mostrar por pantalla un examen" do
     expect(@q1.respond_to? :to_s)
+  end
+  
+  it "Se debe poder corregir un examen" do
+    expect(@q1.respond_to? :check)
   end
 
   it "Debe existir alguna pregunta en el examen" do
@@ -37,6 +41,18 @@ describe Quiz do
       end
       p1 = p1.dev_sig
     end
+  end
+  
+  it "Examen perfecto" do
+    expect(@q1.check([1, 0, 2, 0, 0, 1])).to eq(6)
+  end
+  
+  it "Examen aprobado" do
+    expect(@q1.check([1, 0, 2, 1, 1, 0])).to be >= 3
+  end
+  
+  it "Examen suspenso" do
+    expect(@q1.check([1, 1, 2, 1, 1, 0])).to be < 3
   end
 
   it "Deben existir opciones de respuestas" do

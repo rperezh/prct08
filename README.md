@@ -1,3 +1,6 @@
+[![Coverage Status](https://coveralls.io/repos/rperezh/prct08/badge.png?branch=prct09)](https://coveralls.io/r/rperezh/prct08?branch=prct09)
+[![Build Status](https://travis-ci.org/rperezh/prct08.svg?branch=prct09)](https://travis-ci.org/rperezh/prct08)
+
 # Exam
 
 1. Prct05. Desarrollo Dirigido por Pruebas (TDD).

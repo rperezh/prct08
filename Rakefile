@@ -9,8 +9,8 @@ end
 
 desc 'Run Ruby files from lib folder'
 task :bin do
-  sh 'ruby -I. lib/exam.rb'
-  sh 'ruby -I. lib/List.rb'
+#  sh 'ruby -I. lib/exam.rb'
+#  sh 'ruby -I. lib/List.rb'
   sh 'ruby -I. lib/Quiz.rb'
 end
     

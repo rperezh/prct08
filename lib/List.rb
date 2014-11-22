@@ -1,3 +1,4 @@
+# Clase nodo
 Node = Struct.new(:value, :sig, :ant) do
   # Metodo para inicializar la clase
   def initialize (value, sig, ant)
@@ -41,6 +42,7 @@ Node = Struct.new(:value, :sig, :ant) do
   end
 end
 
+# Clase Lista doblemente enlazada
 class List
   include Enumerable
   attr_accessor :head, :tail
