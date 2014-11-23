@@ -1,6 +1,12 @@
+#encoding: UTF-8
 require "bundler/gem_tasks"
 
 task :default => :spec
+
+desc "Genera la documentacion de la GEM"
+task :rdoc do
+  sh 'rdoc --exclude Gemfile --exclude Guardfile --exclude Rakefile --exclude rspec_*'
+end
 
 desc 'Run RSpec code examples exam'
 task :spec do
