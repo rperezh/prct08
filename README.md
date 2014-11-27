@@ -3,11 +3,12 @@
 
 # Exam
 
-1. Prct05. Desarrollo Dirigido por Pruebas (TDD).
-2. Prct06. Programación Orientada a Objetos.
-3. Prct07. Programación Orientada a Objetos. Herencia.
-4. Prct08. Programación Orientada a Objetos. Módulos.
-5. Prct09. Programación Orientada a Objetos. Singletons.
+1. Práctica de Laboratorio #05. Desarrollo Dirigido por Pruebas (TDD).
+2. Práctica de Laboratorio #06. Programación Orientada a Objetos.
+3. Práctica de Laboratorio #07. Programación Orientada a Objetos. Herencia.
+4. Práctica de Laboratorio #08. Programación Orientada a Objetos. Módulos.
+5. Práctica de Laboratorio #09. Programación Orientada a Objetos. Singletons.
+6. Práctica de Laboratorio #10. Programación Funcional. Funciones de orden superior. Archivo
 
 * Raul Perez Hernandez (https://bitbucket.org/rperezh)
 * Dailos Sabina Rodríguez (https://bitbucket.org/alu0100353259)

@@ -1,15 +1,42 @@
 require "exam/version"
 
+# = exam.rb
+#
+# Autor:: Dailos Sabina Rodriguez
+# Autor:: Raul Perez Hernandez
+#
+#
+
+#Implementamos modulo Exam
 module Exam
-  # Your code goes here...
+
+  # === Clase Pregunta
+  # Definición de la clase Pregunta que permite almacenar y representar una pregunta por pantalla, proporciona una interfaz de usuario y permite saber el nivel de la pregunta mediante una variable. Sus metodos son:
+  # * metodo <=>
+  # * metodo ==
+  # * metodo obtener_pregunta
+  # * metodo obtener_level
+  # * metodo obtener_respuestas
+  # * metodo obtener_correcta
+  # * metodo obtener_respuesta
+  # * metodo initiliaze
+  # * metodo to_s
   class Pregunta
+    # Se incluye el modulo comparable para comparar diferentes niveles de preguntas
     include Comparable
+
+    # Atributo answers, para almacenar las respuestas de la pregunta
+    # Atributo title, para almacenar la respuesta en si
+    # Atributo num_c, numero de la respuesta correcta
+    # Atributo level, nivel de la pregunta
     attr_accessor :answers, :title, :num_c, :level
 
+    # Metodo para hacer uso del modulo Comparable comparando el nivel de dos preguntas
     def <=> (anOther)
       @level <=> anOther.level
     end
 
+    # Metodo para comparar que una pregunta es igual a otra
     def == (other)
       @level == other.level && @title == other.title
     end
@@ -21,6 +48,7 @@ module Exam
       return title
     end
 
+    # Metodo para obtener el nivel de la pregunta
     def self.obtener_level
       print "Introduzca nivel de dificultad de la pregunta, 0 minimo y 10 maximo"
       @level = gets.chomp.to_i
@@ -73,6 +101,10 @@ module Exam
     end
   end
 
+  # === Clase Pregunta_VF
+  # Definición de la clase Pregunta_VF que es hija de Pregunta y que constituye un caso particular de la clase Pregunta para preguntas de Verdadero y Falso. Hace uso de los metodos de Pregunta ademas de:
+  # * metodo initialize. Con overriding sobre el de Pregunta
+  # * metodo obtener_correcta. Con overriding sobre el de Pregunta
   # Clase para representar la clase de preguntas de Verdadero y Falso
   class Pregunta_VF < Pregunta
 

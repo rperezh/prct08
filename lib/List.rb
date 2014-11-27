@@ -1,4 +1,20 @@
-# Clase nodo
+# = List.rb
+#
+# Autor:: Dailos Sabina Rodriguez
+# Autor:: Raul Perez Hernandez
+#
+#
+# === Clase Node
+# Definición de la clase Node que permite almacenar y representar un nodo con un elemento anterior y otor posterior por pantalla mediante los siguientes metodos
+# * metodo initialize
+# * metodo to_s
+# * metodo dev_value
+# * metodo dev_sig
+# * metodo dev_ant 
+# * metodo mod_sig
+# * metodo mod_ant
+#
+
 Node = Struct.new(:value, :sig, :ant) do
   # Metodo para inicializar la clase
   def initialize (value, sig, ant)
@@ -42,15 +58,31 @@ Node = Struct.new(:value, :sig, :ant) do
   end
 end
 
-# Clase Lista doblemente enlazada
+# === Clase List
+# Definición de la clase Lista que permite almacenar, trabajar y representar una lista doblemente enlazada por pantalla mediante los siguientes metodos
+# * metodo each
+# * metodo initialize
+# * metodo ins_inicio
+# * metodo ins_final
+# * metodo sup_inicio
+# * metodo sup_final
+# * metodo to_s
+# * metodo length
+#
+
 class List
+  # Se incluye el modulo enumerable para poder hacer uso de sus metodos
   include Enumerable
+  # Atributo head para mostrar el inicio de la lista
+  # Atributo tail para mostrar el final de la lista
   attr_accessor :head, :tail
 
+  # Metodo each para recorrer la lista y hacer uso del modulo enumerable
   def each
-    while @head != nil
-      yield @head.dev_value
-      @head = @head.dev_sig
+    n = @head
+    while n != nil
+      yield n.dev_value
+      n = n.dev_sig
     end  
   end
 

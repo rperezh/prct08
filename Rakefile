@@ -9,8 +9,8 @@ end
 
 desc 'Run Ruby files from lib folder'
 task :bin do
-#  sh 'ruby -I. lib/exam.rb'
-#  sh 'ruby -I. lib/List.rb'
+  sh 'ruby -I. lib/exam.rb'
+  sh 'ruby -I. lib/List.rb'
   sh 'ruby -I. lib/Quiz.rb'
 end
     
@@ -32,4 +32,9 @@ end
 desc 'Run RSpec Quiz'
 task :quiz do
   sh 'rspec spec/quiz_spec.rb'
+end
+
+desc 'Genera la documentacion de la GEM'
+task :rdoc do
+  sh 'rdoc --exclude Gemfile --exclude Guardfile --exclude Rakefile --exclude rspec_*'
 end
