@@ -9,7 +9,7 @@ require_relative 'Quiz'
 #
 #
 # === Clase QuizDSL
-# Definicion de la clase Quiz que permite representar un examen por pantalla mediante los siguientes metodos y tambien comprobar el resultado del examen
+# Definicion de la clase Quiz que permite representar un examen por pantalla mediante los siguientes metodos y tambien comprobar el resultado del examen, para ello hemos definido la clase como DSL
 # * metodo initialize
 # * metodo question
 # * metodo right
@@ -34,7 +34,7 @@ class QuizDSL < InterfazQuiz
     end
   end
 
-  # Metodo para cargar una pregunta
+  # Metodo para cargar una pregunta haciendo uso de DSL
   def question(title, answers = {})
     resp = []
     a = 0
