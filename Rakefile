@@ -12,8 +12,9 @@ task :bin do
   sh 'ruby -I. lib/exam.rb'
   sh 'ruby -I. lib/List.rb'
   sh 'ruby -I. lib/Quiz.rb'
+  sh 'ruby -I. lib/quiz_dsl.rb'
 end
-    
+
 desc 'Run test with --format documentation'
 task :test do
   sh 'rspec spec/exam_spec.rb --format documentation'
@@ -37,4 +38,9 @@ end
 desc 'Genera la documentacion de la GEM'
 task :rdoc do
   sh 'rdoc --exclude Gemfile --exclude Guardfile --exclude Rakefile --exclude rspec_*'
+end
+
+desc 'Run RSpec Quiz DSL'
+task :dsl do
+  sh 'rspec spec/quiz_dsl_spec.rb'
 end

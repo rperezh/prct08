@@ -1,5 +1,5 @@
-[![Coverage Status](https://coveralls.io/repos/rperezh/prct08/badge.png?branch=prct09)](https://coveralls.io/r/rperezh/prct08?branch=prct09)
-[![Build Status](https://travis-ci.org/rperezh/prct08.svg?branch=prct09)](https://travis-ci.org/rperezh/prct08)
+[![Coverage Status](https://coveralls.io/repos/rperezh/prct08/badge.png?branch=prct11)](https://coveralls.io/r/rperezh/prct08?branch=prct11)
+[![Build Status](https://travis-ci.org/rperezh/prct08.svg?branch=prct11)](https://travis-ci.org/rperezh/prct08)
 
 # Exam
 
@@ -9,6 +9,7 @@
 4. Práctica de Laboratorio #08. Programación Orientada a Objetos. Módulos.
 5. Práctica de Laboratorio #09. Programación Orientada a Objetos. Singletons.
 6. Práctica de Laboratorio #10. Programación Funcional. Funciones de orden superior. Archivo
+7. Práctica de Laboratorio #11. Lenguajes de Dominio Específico (DSL - Domain Specific Languages).
 
 * Raul Perez Hernandez (https://bitbucket.org/rperezh)
 * Dailos Sabina Rodríguez (https://bitbucket.org/alu0100353259)
