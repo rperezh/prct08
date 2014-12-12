@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    exam (0.0.1)
+    lppexam (0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -83,9 +83,9 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.7)
   coveralls
-  exam!
   guard
   guard-bundler
   guard-rspec
+  lppexam!
   rake (~> 10.0)
   rspec
