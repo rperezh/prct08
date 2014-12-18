@@ -7,6 +7,14 @@ describe Naranjero do
     @n2 = @n1.recolectar_naranjas
   end
 
+  it "Debe existir un metodo que indique la altura" do
+    expect(@n1.naranjero.respond_to? :dev_altura).to eq(true)
+  end
+
+  it "Debe existir un metodo que indique su edad" do
+    expect(@n1.naranjero.respond_to? :dev_edad).to eq(true)
+  end
+
   it "Debe existir un metodo llamado uno_mas" do
     expect(@n1.naranjero.respond_to? :uno_mas).to eq(true)
   end

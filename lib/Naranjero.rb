@@ -1,4 +1,4 @@
-#Practica numero 12 sobre programacion concurrente y en paralelo para la asignatura de LPP
+# Practica numero 12 sobre programacion concurrente y en paralelo para la asignatura de LPP
   require 'thread'
   Thread.abort_on_exception = true
  
@@ -23,29 +23,36 @@
     EDAD_MUERTE = 10
     # Valor para hacer una cuenta relativa
     CUENTA_NARANJAS_RELATIVAS_EDAD = 50
+
     # Atributo altura para saber la altura del arbol
     # Atributo edad para conocer su edad
     attr_reader :altura, :edad
     
-    #Metodo para inicializar la clase
+    # Metodo para inicializar la clase
     def initialize
       @altura = 0
       @edad = 0
       @contador = 0
     end
-    #Metodo para devolver la edad del arbol
+
+    # Metodo para devolver la altura del arbol
+    def dev_altura
+      @altura
+    end
+
+    # Metodo para devolver la edad del arbol
     def dev_edad
       @edad
     end
 
-    #Metodo para hacer que la edad del arbol aumente
+    # Metodo para hacer que la edad del arbol aumente
     def uno_mas
       @edad += 1
       @altura += CRECIMIENTO_ANUAL
       @contador = rand(@edad..EDAD_MUERTE) * Math.log(@edad) * CUENTA_NARANJAS_RELATIVAS_EDAD
     end
     
-    #Metodo para recolectar una naranja
+    # Metodo para recolectar una naranja
     def recolectar_una
       if (@edad == EDAD_MUERTE)
         print "Lo siento, el arbol esta muerto\n"
@@ -74,7 +81,7 @@
       @naranjero = naranjero
     end
 
-    #Metodo para recolectar naranjas y llevar los hilos
+    # Metodo para recolectar naranjas y llevar los hilos
     def recolectar_naranjas
       recolector = Thread.new do
         until (@naranjero.edad == Naranjero::EDAD_MUERTE)
@@ -109,6 +116,8 @@
       [recolector, crecer_arbol]
     end
   end
+if __FILE__ == $0
   trabajador = Trabajador.new(Mutex.new, ConditionVariable.new, Naranjero.new)
   threads = trabajador.recolectar_naranjas
   threads.each {|t| t.join}
+end
